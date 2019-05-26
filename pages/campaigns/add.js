@@ -126,7 +126,7 @@ class RequestNew extends Component {
                 </Grid>
 
                 <Dimmer active={this.state.loading} inverted>
-                    <Loader size='large'>Adding the voter.</Loader>
+                    <Loader size='large'>Adding the candidate.</Loader>
                 </Dimmer>
             </Layout>
         );

@@ -2,7 +2,6 @@ import React , { Component } from 'react';
 import { Form, Button, Message, Label,Table, Input } from 'semantic-ui-react';
 import Campaign from '../../../ethereum/campaign';
 import web3 from '../../../ethereum/web3';
-import { Link , Router } from '../../../routes';
 import Layout from '../../../components/Layout';
 import ReactVotes from '../../../components/ReactVotes';
 import VoteChart from '../../../components/VoteChart';
@@ -42,8 +41,14 @@ class RequestNew extends Component {
         });
 
         votes.sort(function(a,b) { return (b['voteCount']-a['voteCount'])});  
-        
-        return { address , requests, requestCount, votes };
+
+        const names = [],votecount=[];
+        votes.forEach((vote) => {
+            names.push(vote.name);
+            votecount.push(vote.voteCount);
+        });
+                
+        return { address , requests, requestCount, names,votes, votecount };
     }
 
     renderVotes() {
@@ -72,8 +77,8 @@ class RequestNew extends Component {
                   </Header>
                 <Body>{this.renderVotes()}</Body>
                 </Table>
-
-                <VoteChart votes = {this.props.votes} />
+                
+                <VoteChart names = {this.props.names} votecount = {this.props.votecount}/>
                 
             </Layout>
 

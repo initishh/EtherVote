@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {Bar, Pie } from 'react-chartjs-2';
 
-
 const chartStyle = {
     position: `absolute`,
     width: `700px`,
@@ -13,11 +12,14 @@ class VoteChart extends Component {
         super(props);
 
         const votes = props.votes;
-        const names = [],votecount=[];
-        votes.forEach((vote) => {
-            names.push(vote.name);
-            votecount.push(vote.voteCount);
-        });
+        const names = props.names;
+        const votecount = props.votecount;
+
+        // const names = [],votecount=[];
+        // votes.forEach((vote) => {
+        //     names.push(vote.name);
+        //     votecount.push(vote.voteCount);
+        // });
 
         this.state = {
             chartData: {
@@ -67,7 +69,7 @@ class VoteChart extends Component {
                             layout: {
                                 padding: {
                                     left: 50,
-                                    right: 0,
+                                    right: 0,       
                                     bottom: 0,
                                     top: 0
                                 }

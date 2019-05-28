@@ -29,11 +29,15 @@ class RequestNew extends Component {
         imageLink: '',
         partyName: '',
         flag: false,
-        loading: false
+        loading: false,
+        flag2: false
     }
 
     onFinalize = async event => {
         event.preventDefault();
+
+        this.setState({flag2: true});
+
         window.open(`/campaigns/${this.props.address}/vote`,"_blank");
     }
 
@@ -88,7 +92,7 @@ class RequestNew extends Component {
 
                     <Grid.Column width={5}>
                         <h3>Add a Candidate.</h3>
-                        <Form onSubmit={this.onSubmit} >
+                        <Form disabled={this.state.flag2} onSubmit={this.onSubmit} >
                             <Form.Field>
                                 <label>Name of the Candidate.</label>
                                 <Input
@@ -113,7 +117,7 @@ class RequestNew extends Component {
                                 />
                             </Form.Field>
 
-                            <Button primary>Add Candidate.</Button>
+                            <Button primary disabled={this.state.flag2} >Add Candidate.</Button>
                         </Form>
                         <Form onSubmit={this.onFinalize}>
                             <Button inverted color='blue' style={{ marginTop: '25px' }} disabled={!this.state.flag} >Start Election!</Button>

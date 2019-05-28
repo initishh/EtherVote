@@ -93,7 +93,7 @@ class CampaignNew extends Component {
                                         <img style={imgStyle}
                                             className="d-block w-100"
                                             src="https://c.ndtvimg.com/2019-03/5f7s9hg8_vote-generic_625x300_12_March_19.jpg"
-                                            alt="Third slide"
+                                            alt="second slide"
                                         />
                                     </Carousel.Item>
 

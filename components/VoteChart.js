@@ -3,7 +3,7 @@ import {Bar, Pie } from 'react-chartjs-2';
 
 const chartStyle = {
     position: `absolute`,
-    width: `700px`,
+    width: `500px`,
     right: `40px`,
 }
 
